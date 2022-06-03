@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_advance/models/band.dart';
@@ -33,7 +36,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         elevation: 1,
-        onPressed: (){}
+        onPressed: addNewButton
       ),
     );
   }
@@ -51,4 +54,42 @@ class _HomePageState extends State<HomePage> {
         },
       );
   }
+
+  addNewButton(){
+    final textController = new TextEditingController();
+
+    if(Platform.isAndroid){
+      return showDialog(
+        context: context, 
+        builder: (context){
+          return AlertDialog(
+            title: Text('New band name:'),
+            content: TextField(
+              controller: textController,
+            ),
+            actions: <Widget>[
+              MaterialButton(
+                child: Text('add'),
+                elevation: 5,
+                onPressed: (){}//addBandToList(textController.text);}
+              ),
+            ],
+          );
+        }
+      );
+    }
+
+  /*showCupertinoDialog(context: context, builder: builder)*/
+
+  }
+
+  addBandToList(String name){
+    print(name);
+    if(name.length > 1){
+
+    }
+
+    Navigator.pop(context);
+  }
+
 }
