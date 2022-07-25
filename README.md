@@ -1,6 +1,23 @@
-# flutter_advance
+# Flutter Avanzado: Lleva tu conocimiento al siguiente nivel
 
-A new Flutter project.
+
+Udemy curse by: [Fernando Herrera](https://fernando-herrera.com/#/)
+
+This time learning backend with NodeJS in Flutter.
+Requirements:
+- Flutter
+- Postman
+- MongoDB Compass
+- NodeJS (nodemon: 'sudo npm i -g nodemon' )
+
+## Modules 
+
+### 01 - Band Names
+
+#### Packages Used:
+- express
+
+
 
 ## Getting Started
 
