@@ -9,7 +9,6 @@ Requirements:
 - Postman
 - MongoDB Compass
 - NodeJS (nodemon: 'sudo npm i -g nodemon' )
-- Socket.io
 
 ## Modules 
 
@@ -18,6 +17,7 @@ Requirements:
 #### Packages Used (NodeJS):
 - express
 - dotenv
+- Socket.io
 
 
 ## Getting Started
