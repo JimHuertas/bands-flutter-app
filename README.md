@@ -18,6 +18,7 @@ Requirements:
 - express
 - dotenv
 - Socket.io
+- uuid (create uniques ids)
 
 
 ## Getting Started
