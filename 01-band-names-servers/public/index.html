@@ -25,6 +25,10 @@
         socket.on('mensaje', function(payload){
             console.log('Esuchando: ', payload);
         });
+
+        socket.on('nuevo-mensaje', function(payload){
+            console.log(payload['nombre'], ' y ', payload['mensaje']);
+        });
     </script>
 </body>
 </html>
