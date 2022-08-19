@@ -25,6 +25,29 @@ class _HomePageState extends State<HomePage> {
   ];
 
   @override
+  void initState() {
+    final socketService = Provider.of<SocketService>(context, listen: false);
+
+    socketService.socket.on('bandas-activas', (payload){
+      bands = (payload as List)
+      .map((band)=>Band.fromMap(band))
+      .toList();
+      
+      setState(() {});
+      
+    });
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    final socketService = Provider.of<SocketService>(context, listen: false);
+    socketService.socket.off('bandas-activas');
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
 
     final socketService = Provider.of<SocketService>(context);
@@ -58,6 +81,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _BandTile(Band band) {
+    final socketService = Provider.of<SocketService>(context, listen: false);
+
     return Dismissible(
       key: Key(band.id),
       direction: DismissDirection.startToEnd,
@@ -68,7 +93,7 @@ class _HomePageState extends State<HomePage> {
       background: Container(
         padding: EdgeInsets.only(left: 8.0),
         color: Colors.red,
-        child: Align(
+        child: const Align(
           alignment: Alignment.centerLeft,
           child: Text('Delete Band', style: TextStyle(color: Colors.white),),
         ),
@@ -82,7 +107,9 @@ class _HomePageState extends State<HomePage> {
           title: Text(band.name),
           trailing: Text('${band.votes}', style: TextStyle( fontSize: 20),),
           onTap: (){
-            print(band.name);
+            socketService.socket.emit('add-votes', {
+              'id'  :band.id
+            });
           },
         ),
     );
@@ -102,9 +129,14 @@ class _HomePageState extends State<HomePage> {
             ),
             actions: <Widget>[
               MaterialButton(
-                child: Text('add'),
+                child: Text('Add'),
                 elevation: 5,
                 onPressed: () => addBandToList(textController.text)
+              ),
+              MaterialButton(
+                child: Text('Cancel'),
+                elevation: 5,
+                onPressed: () => Navigator.pop(context)
               ),
             ],
           );
