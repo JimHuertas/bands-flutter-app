@@ -20,7 +20,7 @@ class SocketService with ChangeNotifier{
 
   void _initCongif(){
     // Dart client
-    _socket = IO.io('http://localhost:3000/', {
+    _socket = IO.io('https://flutter-server-heroku.herokuapp.com/', {
       'transports': ['websocket'],
       'autoConnect': true,
 
