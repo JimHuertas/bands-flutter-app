@@ -12,11 +12,11 @@ Bands App you can add vote or delete bands, working with NodeJS (socket.io), Mon
 Server working with [Bands App](https://github.com/JimHuertas/01-bands-names-server)
 
 MODULES: 
-- 1(intro)&ensp; ✅
-- 2&emsp;&emsp;&emsp;&ensp;✅
-- 3&emsp;&emsp;&emsp;&ensp;✅
-- 4&emsp;&emsp;&emsp;&ensp;✅
-- 5&emsp;&emsp;&emsp;&ensp;✅
+- [x] 1(intro)
+- [x] 2
+- [x] 3
+- [x] 4
+- [x] 5
 
 Next Modules:
 [Messenger App](https://github.com/JimHuertas/messenger_app_flutter)
